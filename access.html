@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guest Pass</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Poppins,sans-serif;
+
+background:linear-gradient(135deg,#fffdf7,#f8efe2);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+.card{
+
+width:100%;
+
+max-width:600px;
+
+background:white;
+
+padding:50px;
+
+border-radius:25px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.12);
+
+border:2px solid #d7b56d;
+
+text-align:center;
+
+animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.success{
+
+font-size:70px;
+
+}
+
+h1{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:52px;
+
+color:#b28729;
+
+margin-top:10px;
+
+}
+
+.subtitle{
+
+margin:15px 0 35px;
+
+color:#666;
+
+line-height:1.8;
+
+}
+
+.loading{
+
+font-size:18px;
+
+margin-top:20px;
+
+color:#888;
+
+}
+
+.code{
+
+font-size:70px;
+
+font-weight:bold;
+
+color:#b28729;
+
+display:none;
+
+margin:30px 0;
+
+letter-spacing:8px;
+
+}
+
+.info{
+
+margin:30px 0;
+
+line-height:2;
+
+color:#555;
+
+}
+
+button{
+
+padding:16px 30px;
+
+border:none;
+
+background:#b28729;
+
+color:white;
+
+border-radius:12px;
+
+font-size:16px;
+
+cursor:pointer;
+
+margin-top:15px;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#8b6618;
+
+}
+
+.footer{
+
+margin-top:35px;
+
+font-size:14px;
+
+color:#777;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="success">
+
+🎉
+
+</div>
+
+<h1>
+
+ACCESS GRANTED
+
+</h1>
+
+<p class="subtitle">
+
+Welcome!
+
+<br><br>
+
+You have successfully unlocked your birthday invitation.
+
+</p>
+
+<div class="loading" id="loading">
+
+Generating Guest Pass...
+
+</div>
+
+<div class="code" id="code">
+
+12345
+
+</div>
+
+<button onclick="copyCode()">
+
+Copy Guest Code
+
+</button>
+
+<div class="info">
+
+📅 <strong>Monday, 27 July 2026</strong>
+
+<br>
+
+🕒 Time: To Be Announced
+
+<br><br>
+
+📍 House 2, 24 Road
+
+<br>
+
+Paradise Hills Estate
+
+<br>
+
+Guzape, Abuja
+
+<br><br>
+
+☎ 08074747785
+
+</div>
+
+<button onclick="openMap()">
+
+Open Google Maps
+
+</button>
+
+<p class="footer">
+
+We look forward to celebrating with you.
+
+❤️
+
+</p>
+
+</div>
+
+<script>
+
+setTimeout(()=>{
+
+document.getElementById("loading").style.display="none";
+
+document.getElementById("code").style.display="block";
+
+},2000);
+
+function copyCode(){
+
+navigator.clipboard.writeText("12345");
+
+alert("Guest Code copied!");
+
+}
+
+function openMap(){
+
+window.open("https://www.google.com/maps/search/?api=1&query=House+2+24+Road+Paradise+Hills+Estate+Guzape+Abuja");
+
+}
+
+</script>
+
+</body>
+
+</html>
