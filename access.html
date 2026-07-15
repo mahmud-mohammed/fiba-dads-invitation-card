@@ -1,306 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Guest Pass</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-
-font-family:Poppins,sans-serif;
-
-background:linear-gradient(135deg,#fffdf7,#f8efe2);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-min-height:100vh;
-
-padding:20px;
-
+    font-family:Poppins,sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(200,165,90,.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(200,165,90,.15), transparent 45%),
+        linear-gradient(135deg,#0b0b0d 0%,#161616 50%,#0b0b0d 100%);
+    color:#f2e6c9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    position:relative;
+    overflow-x:hidden;
 }
 
+body::before,body::after{
+    content:"";
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(200,165,90,.25),transparent 70%);
+    filter:blur(40px);
+    pointer-events:none;
+    z-index:0;
+}
+body::before{top:-80px;left:-80px;}
+body::after{bottom:-80px;right:-80px;}
+
 .card{
-
-width:100%;
-
-max-width:600px;
-
-background:white;
-
-padding:50px;
-
-border-radius:25px;
-
-box-shadow:0 25px 60px rgba(0,0,0,.12);
-
-border:2px solid #d7b56d;
-
-text-align:center;
-
-animation:fade .8s ease;
-
+    width:100%;
+    max-width:600px;
+    background:linear-gradient(160deg,rgba(20,20,22,.92),rgba(12,12,14,.96));
+    padding:50px 40px;
+    border-radius:25px;
+    box-shadow:0 25px 60px rgba(0,0,0,.55), inset 0 0 0 1px rgba(200,165,90,.35);
+    border:1px solid rgba(200,165,90,.4);
+    text-align:center;
+    animation:fade .8s ease;
+    position:relative;
+    z-index:1;
 }
 
 @keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
-
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-.success{
-
-font-size:70px;
-
-}
+.success{font-size:70px;}
 
 h1{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:52px;
-
-color:#b28729;
-
-margin-top:10px;
-
+    font-family:"Cormorant Garamond",serif;
+    font-size:52px;
+    color:#d7b56d;
+    letter-spacing:4px;
+    margin-top:10px;
+    text-shadow:0 2px 20px rgba(200,165,90,.35);
 }
 
-.subtitle{
+.subtitle{margin:15px 0 35px;color:#c9c2ad;line-height:1.8;}
 
-margin:15px 0 35px;
-
-color:#666;
-
-line-height:1.8;
-
+.subtitle .welcome-name{
+    color:#e9c97a;
+    font-weight:600;
+    font-family:"Cormorant Garamond",serif;
+    font-size:24px;
+    letter-spacing:1px;
 }
 
-.loading{
-
-font-size:18px;
-
-margin-top:20px;
-
-color:#888;
-
-}
+.loading{font-size:18px;margin-top:20px;color:#a89f85;}
 
 .code{
-
-font-size:70px;
-
-font-weight:bold;
-
-color:#b28729;
-
-display:none;
-
-margin:30px 0;
-
-letter-spacing:8px;
-
+    font-size:56px;
+    font-weight:bold;
+    color:#e9c97a;
+    display:none;
+    margin:30px 0;
+    letter-spacing:6px;
+    text-shadow:0 2px 20px rgba(200,165,90,.35);
+    word-break:break-word;
 }
 
-.info{
-
-margin:30px 0;
-
-line-height:2;
-
-color:#555;
-
-}
+.verse{margin:30px auto;line-height:1.8;color:#bfb79d;font-style:italic;max-width:480px;}
+.verse span{display:block;margin-top:6px;color:#8f8770;font-style:normal;}
 
 button{
-
-padding:16px 30px;
-
-border:none;
-
-background:#b28729;
-
-color:white;
-
-border-radius:12px;
-
-font-size:16px;
-
-cursor:pointer;
-
-margin-top:15px;
-
-transition:.3s;
-
+    padding:14px 26px;
+    border:none;
+    background:linear-gradient(135deg,#c8a55a,#8b6618);
+    color:#0b0b0d;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    margin:8px 6px 0;
+    transition:.3s;
+    letter-spacing:.5px;
 }
 
-button:hover{
+button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(200,165,90,.35);}
 
-background:#8b6618;
+.footer{margin-top:35px;font-size:14px;color:#a89f85;}
 
+@media(max-width:480px){
+    h1{font-size:38px;letter-spacing:2px;}
+    .code{font-size:40px;letter-spacing:4px;}
+    .card{padding:35px 22px;}
 }
-
-.footer{
-
-margin-top:35px;
-
-font-size:14px;
-
-color:#777;
-
-}
-
 </style>
-
 </head>
-
 <body>
 
 <div class="card">
 
-<div class="success">
+    <div class="success">🎉</div>
 
-🎉
+    <h1>ACCESS GRANTED</h1>
 
-</div>
+    <p class="subtitle">
+        We are honored by your presence, <span class="welcome-name" id="welcomeName">Guest</span>!
+        <br><br>
+        Your invitation has been successfully verified.
 
-<h1>
+    </p>
 
-ACCESS GRANTED
+    <div class="loading" id="loading">Generating Guest Pass...</div>
 
-</h1>
+    <div class="code" id="code">Guest ID: 34576864</div>
 
-<p class="subtitle">
+    <div class="verse">
+        "The glory of the young is their strength, and the splendor of the old is their gray hair."
+        <span>— Proverbs 20:29</span>
+    </div>
 
-Welcome!
+    <button onclick="copyCode()">Copy Guest Code</button>
+    <button onclick="openMap()">Open Google Maps</button>
 
-<br><br>
-
-You have successfully unlocked your birthday invitation.
-
-</p>
-
-<div class="loading" id="loading">
-
-Generating Guest Pass...
-
-</div>
-
-<div class="code" id="code">
-
-12345
-
-</div>
-
-<button onclick="copyCode()">
-
-Copy Guest Code
-
-</button>
-
-<div class="info">
-
-📅 <strong>Monday, 27 July 2026</strong>
-
-<br>
-
-🕒 Time: To Be Announced
-
-<br><br>
-
-📍 House 2, 24 Road
-
-<br>
-
-Paradise Hills Estate
-
-<br>
-
-Guzape, Abuja
-
-<br><br>
-
-☎ 08074747785
-
-</div>
-
-<button onclick="openMap()">
-
-Open Google Maps
-
-</button>
-
-<p class="footer">
-
-We look forward to celebrating with you.
-
-❤️
-
-</p>
+    <p class="footer">We look forward to celebrating with you. ❤️</p>
 
 </div>
 
 <script>
+    const name = sessionStorage.getItem("guestName");
+    if (name) document.getElementById("welcomeName").textContent = name;
 
-setTimeout(()=>{
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("code").style.display = "block";
+    }, 2000);
 
-document.getElementById("loading").style.display="none";
+    function copyCode(){
+        navigator.clipboard.writeText("34576864");
+        alert("Guest Code copied!");
+    }
 
-document.getElementById("code").style.display="block";
-
-},2000);
-
-function copyCode(){
-
-navigator.clipboard.writeText("12345");
-
-alert("Guest Code copied!");
-
-}
-
-function openMap(){
-
-window.open("https://www.google.com/maps/search/?api=1&query=House+2+24+Road+Paradise+Hills+Estate+Guzape+Abuja");
-
-}
-
+    function openMap(){
+        window.open("https://www.google.com/maps/search/?api=1&query=House+2+24+Road+Paradise+Hills+Estate+Guzape+Abuja");
+    }
 </script>
 
 </body>
-
 </html>

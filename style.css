@@ -1,614 +1,282 @@
-/* ===========================
-   GOOGLE FONTS RESET
-=========================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
-
     --gold:#C8A55A;
-    --gold-dark:#9C7932;
-    --cream:#FBF8F2;
-    --white:#ffffff;
-    --text:#2C2C2C;
-    --gray:#666666;
-
+    --gold-light:#e9c97a;
+    --gold-dark:#8b6618;
+    --ink:#0b0b0d;
+    --text:#f2e6c9;
+    --muted:#bfb79d;
+    --dim:#8f8770;
 }
 
-html{
-
-    scroll-behavior:smooth;
-
-}
+html{scroll-behavior:smooth;}
 
 body{
-
     font-family:'Poppins',sans-serif;
-
-    background:linear-gradient(135deg,#fffdf8,#f8f1e4);
-
+    background:
+        radial-gradient(circle at 15% 15%, rgba(200,165,90,.22), transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(200,165,90,.18), transparent 40%),
+        linear-gradient(135deg,#0a0a0c 0%,#161618 50%,#0a0a0c 100%);
     color:var(--text);
-
     min-height:100vh;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    padding:40px;
-
+    padding:40px 20px;
     overflow-x:hidden;
-
+    position:relative;
 }
 
 .background-overlay{
-
     position:fixed;
-
     inset:0;
-
     background:
-
-    radial-gradient(circle at top left,
-    rgba(200,165,90,.15),
-    transparent 30%),
-
-    radial-gradient(circle at bottom right,
-    rgba(200,165,90,.12),
-    transparent 30%);
-
-    z-index:-1;
-
+        radial-gradient(circle at 10% 20%, rgba(200,165,90,.18), transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(200,165,90,.14), transparent 35%);
+    z-index:0;
+    pointer-events:none;
 }
 
+.background-overlay::before,
+.background-overlay::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(circle, rgba(233,201,122,.55) 1.2px, transparent 1.6px),
+        radial-gradient(circle, rgba(200,165,90,.35) 1px, transparent 1.4px);
+    background-size: 90px 90px, 140px 140px;
+    background-position: 0 0, 45px 30px;
+    opacity:.35;
+}
+.background-overlay::after{background-size:200px 200px;opacity:.2;}
+
 .invitation-card{
-
     width:100%;
-
     max-width:700px;
-
-    background:rgba(255,255,255,.90);
-
+    background:linear-gradient(160deg,rgba(22,22,25,.94),rgba(11,11,13,.98));
     backdrop-filter:blur(10px);
-
     border:1px solid rgba(200,165,90,.4);
-
     border-radius:28px;
-
     padding:60px;
-
     position:relative;
-
     overflow:hidden;
-
-    box-shadow:
-
-    0 25px 70px rgba(0,0,0,.10);
-
+    box-shadow:0 25px 70px rgba(0,0,0,.55), inset 0 0 0 1px rgba(200,165,90,.15);
     animation:fadeUp 1s ease;
-
+    z-index:1;
 }
 
 @keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(50px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
+    from{opacity:0;transform:translateY(50px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 .gold-circle{
-
     position:absolute;
-
     border-radius:50%;
-
-    background:rgba(200,165,90,.08);
-
+    background:radial-gradient(circle,rgba(200,165,90,.22),transparent 70%);
+    filter:blur(6px);
 }
-
-.circle-one{
-
-    width:220px;
-
-    height:220px;
-
-    top:-90px;
-
-    right:-80px;
-
-}
-
-.circle-two{
-
-    width:180px;
-
-    height:180px;
-
-    bottom:-80px;
-
-    left:-70px;
-
-}
+.circle-one{width:260px;height:260px;top:-110px;right:-100px;}
+.circle-two{width:220px;height:220px;bottom:-100px;left:-90px;}
 
 .small-heading{
-
     text-align:center;
-
     letter-spacing:6px;
-
-    color:var(--gold-dark);
-
+    color:var(--gold-light);
     font-size:12px;
-
     font-weight:600;
-
     margin-bottom:20px;
-
+    text-transform:uppercase;
 }
 
 .birthday-title{
-
     text-align:center;
-
     font-family:'Cormorant Garamond',serif;
-
     font-size:78px;
-
     color:var(--gold);
-
     line-height:1;
-
+    text-shadow:0 2px 30px rgba(200,165,90,.35);
 }
 
 .party-title{
-
     text-align:center;
-
     font-family:'Great Vibes',cursive;
-
     font-size:58px;
-
     color:var(--text);
-
     margin-top:-10px;
-
     margin-bottom:25px;
-
 }
 
 .divider{
-
     width:90px;
-
     height:2px;
-
-    background:var(--gold);
-
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
     margin:30px auto;
-
 }
 
 .celebrant{
-
     text-align:center;
-
     font-family:'Cormorant Garamond',serif;
-
     font-size:36px;
-
     color:var(--text);
-
     line-height:1.3;
-
 }
 
 .celebrant span{
-
     display:block;
-
-    color:var(--gold);
-
+    color:var(--gold-light);
     font-size:42px;
-
+    text-shadow:0 2px 24px rgba(200,165,90,.35);
 }
 
-.description{
+.description{text-align:center;color:var(--muted);line-height:1.9;margin:30px 0;}
+.description b{color:var(--gold-light);}
 
-    text-align:center;
+.event-details{display:grid;gap:20px;}
 
-    color:var(--gray);
-
-    line-height:1.9;
-
-    margin:30px 0;
-
-}
-
-.event-details{
-
-    display:grid;
-
-    gap:20px;
-
-}
-
-.detail{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:18px;
-
-}
+.detail{display:flex;align-items:flex-start;gap:18px;}
 
 .icon{
-
-    width:50px;
-
-    height:50px;
-
+    width:50px;height:50px;
     border-radius:50%;
-
-    background:rgba(200,165,90,.12);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:22px;
-
-    flex-shrink:0;
-
+    background:rgba(200,165,90,.15);
+    border:1px solid rgba(200,165,90,.35);
+    display:flex;justify-content:center;align-items:center;
+    font-size:22px;flex-shrink:0;
 }
 
-.detail h4{
+.detail h4{margin-bottom:5px;color:var(--gold-light);letter-spacing:.5px;}
+.detail p{color:var(--muted);line-height:1.7;}
 
-    margin-bottom:5px;
-
-    color:var(--gold-dark);
-
-}
-
-.detail p{
-
-    color:#555;
-
-    line-height:1.7;
-
-}
-/* ===========================
-   ACCESS SECTION
-=========================== */
-
+/* ACCESS SECTION */
 .access-title{
-
     text-align:center;
-
-    font-size:24px;
-
-    color:var(--gold-dark);
-
+    font-size:26px;
+    color:var(--gold-light);
     margin-bottom:10px;
-
     font-family:'Cormorant Garamond',serif;
-
+    letter-spacing:2px;
 }
 
-.access-text{
+.access-text{text-align:center;color:var(--muted);margin-bottom:25px;line-height:1.7;}
 
-    text-align:center;
-
-    color:var(--gray);
-
-    margin-bottom:25px;
-
-    line-height:1.7;
-
-}
-
+.name-box,
 .password-box{
-
     display:flex;
-
     align-items:center;
-
-    border:2px solid rgba(200,165,90,.35);
-
+    border:1.5px solid rgba(200,165,90,.35);
     border-radius:14px;
-
     overflow:hidden;
-
-    background:#fff;
-
+    background:rgba(255,255,255,.04);
     transition:.3s;
-
+    margin-bottom:14px;
 }
 
+.name-box:focus-within,
 .password-box:focus-within{
-
     border-color:var(--gold);
-
-    box-shadow:0 0 15px rgba(200,165,90,.25);
-
+    box-shadow:0 0 18px rgba(200,165,90,.25);
+    background:rgba(255,255,255,.06);
 }
 
+.name-box input,
 .password-box input{
-
     flex:1;
-
     border:none;
-
     padding:18px;
-
     outline:none;
-
     font-size:16px;
-
     background:transparent;
-
+    color:var(--text);
     font-family:'Poppins',sans-serif;
-
 }
+
+.name-box input::placeholder,
+.password-box input::placeholder{color:rgba(242,230,201,.45);}
 
 .password-box button{
-
     width:60px;
-
     border:none;
-
     background:transparent;
-
     cursor:pointer;
-
     font-size:20px;
-
-    color:var(--gold-dark);
-
+    color:var(--gold-light);
     transition:.3s;
-
 }
 
-.password-box button:hover{
-
-    background:rgba(200,165,90,.10);
-
-}
+.password-box button:hover{background:rgba(200,165,90,.12);}
 
 .unlock-btn{
-
     width:100%;
-
-    margin-top:25px;
-
+    margin-top:15px;
     padding:18px;
-
     border:none;
-
     border-radius:14px;
-
     cursor:pointer;
-
     font-size:16px;
-
     font-weight:600;
-
     letter-spacing:1px;
-
-    color:white;
-
-    background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-
+    color:#0b0b0d;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
     transition:.35s;
-
     position:relative;
-
     overflow:hidden;
-
 }
 
-.unlock-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 12px 30px rgba(200,165,90,.35);
-
-}
+.unlock-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(200,165,90,.45);}
 
 .unlock-btn::before{
-
     content:"";
-
     position:absolute;
-
-    top:0;
-
-    left:-100%;
-
-    width:100%;
-
-    height:100%;
-
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.45),
-        transparent
-    );
-
+    top:0;left:-100%;
+    width:100%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
     transition:.8s;
-
 }
 
-.unlock-btn:hover::before{
-
-    left:100%;
-
-}
+.unlock-btn:hover::before{left:100%;}
 
 .error-message{
-
     text-align:center;
-
-    color:#d32f2f;
-
+    color:#ff8a8a;
     margin-top:18px;
-
     font-size:14px;
-
     min-height:20px;
-
 }
 
-/* ===========================
-   MOBILE
-=========================== */
-
+/* MOBILE */
 @media(max-width:768px){
-
-    body{
-
-        padding:20px;
-
-    }
-
-    .invitation-card{
-
-        padding:35px 25px;
-
-        border-radius:22px;
-
-    }
-
-    .birthday-title{
-
-        font-size:58px;
-
-    }
-
-    .party-title{
-
-        font-size:46px;
-
-    }
-
-    .celebrant{
-
-        font-size:28px;
-
-    }
-
-    .celebrant span{
-
-        font-size:34px;
-
-    }
-
+    body{padding:20px;}
+    .invitation-card{padding:35px 25px;border-radius:22px;}
+    .birthday-title{font-size:58px;}
+    .party-title{font-size:46px;}
+    .celebrant{font-size:28px;}
+    .celebrant span{font-size:34px;}
 }
 
 @media(max-width:480px){
-
-    .birthday-title{
-
-        font-size:46px;
-
-    }
-
-    .party-title{
-
-        font-size:38px;
-
-    }
-
-    .small-heading{
-
-        letter-spacing:3px;
-
-        font-size:11px;
-
-    }
-
-    .detail{
-
-        flex-direction:column;
-
-        align-items:center;
-
-        text-align:center;
-
-    }
-
-    .icon{
-
-        margin-bottom:5px;
-
-    }
-
+    .birthday-title{font-size:46px;}
+    .party-title{font-size:38px;}
+    .small-heading{letter-spacing:3px;font-size:11px;}
+    .detail{flex-direction:column;align-items:center;text-align:center;}
+    .icon{margin-bottom:5px;}
 }
 
-/* ===========================
-   LOADING ANIMATION
-=========================== */
-
-.loading{
-
-    pointer-events:none;
-
-    opacity:.8;
-
-}
+/* LOADING */
+.loading{pointer-events:none;opacity:.8;}
 
 .loading::after{
-
     content:"";
-
-    width:18px;
-
-    height:18px;
-
+    width:18px;height:18px;
     border:3px solid rgba(255,255,255,.4);
-
     border-top-color:#fff;
-
     border-radius:50%;
-
     display:inline-block;
-
     margin-left:10px;
-
     animation:spin .7s linear infinite;
-
     vertical-align:middle;
-
 }
 
-@keyframes spin{
-
-    to{
-
-        transform:rotate(360deg);
-
-    }
-
-}
+@keyframes spin{to{transform:rotate(360deg);}}
